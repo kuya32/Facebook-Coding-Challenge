@@ -4,13 +4,18 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Cards(
-    val card_type: String?
-        ) : Parcelable {
-    constructor(parcel: Parcel) : this(parcel.readString()) {
+    val card_type: String?,
+    val card: Card?
+): Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readParcelable(Card::class.java.classLoader)
+    ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(card_type)
+        parcel.writeParcelable(card, flags)
     }
 
     override fun describeContents(): Int {
