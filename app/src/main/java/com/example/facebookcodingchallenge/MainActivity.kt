@@ -23,8 +23,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var repository: CardRepository
-    private var viewModel: MainActivityViewModel = MainActivityViewModel(repository)
+    private var viewModel: MainActivityViewModel = MainActivityViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

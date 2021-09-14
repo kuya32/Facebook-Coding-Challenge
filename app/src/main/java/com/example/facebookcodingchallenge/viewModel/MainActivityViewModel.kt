@@ -9,9 +9,11 @@ import com.example.facebookcodingchallenge.network.RetroInstance
 import com.example.facebookcodingchallenge.repository.CardRepository
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(private val repository: CardRepository): ViewModel() {
+class MainActivityViewModel(): ViewModel() {
 
+    lateinit var repository: CardRepository
     val myResponse: MutableLiveData<Page> = MutableLiveData()
+
 
     fun getPage() {
         viewModelScope.launch {
